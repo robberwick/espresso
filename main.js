@@ -29,7 +29,7 @@ function RCChannel(options){
         {
             repeat: true,
             edge: 'falling',
-            debounce:10
+            debounce:0
         }, options.watchOptions || {}
     );
     this.watch = setWatch(this.watchHandler.bind(this), this.pin, this.watchOptions);
