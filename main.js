@@ -62,12 +62,8 @@ RCChannelMixer.prototype.update = function(channel, value) {
     this.inputs[channel].value = value;
 };
 RCChannelMixer.prototype.getOutput = function() {
-    // Math.min(Math.max(parseInt(number), 1), 20);
-    // RightESC.write(constrain((this.inputs.throttle.value+this.inputs.rudder.value)/2,1000,2000));
-    // LeftESC.write(constrain((-this.inputs.throttle.value+this.inputs.rudder.value)/2+1500,1000,2000));
     var left = Math.min(Math.max(parseFloat((this.inputs.throttle.value+this.inputs.rudder.value)/2, 10), 1), 2);
     var right = Math.min(Math.max(parseFloat((-this.inputs.throttle.value+this.inputs.rudder.value)/2+1.5, 10), 1), 2);
-    // console.log(this.inputs.throttle.value, this.inputs.rudder.value);
     return [
         [this.outputPins.left, left],
         [this.outputPins.right, right],
