@@ -37,7 +37,7 @@ function RCChannel(options){
 
 RCChannel.prototype.watchHandler = function(e) {
     if (this.callback){
-        this.callback.call(this, e.time - e.lastTime);
+        this.callback.call(this, (e.time - e.lastTime)*1000);
     }
 };
 
