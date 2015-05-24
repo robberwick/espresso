@@ -33,9 +33,11 @@ function RCChannel(options){
         }, options.watchOptions || {}
     );
     this.watch = setWatch(this.watchHandler.bind(this), this.pin, this.watchOptions);
+    this.lastSeen = 0;
 }
 
 RCChannel.prototype.watchHandler = function(e) {
+    this.lastSeen = e.time;
     if (this.callback){
         this.callback.call(this, (e.time - e.lastTime)*1000);
     }
