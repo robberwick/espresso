@@ -45,13 +45,15 @@ var receiver = new RCReceiver([
     {
         pin: A0,
         callback: function(time){
-            console.log("Pin", time);
+            console.log("Pin A0", time.toFixed(2));
+            digitalPulse(A1, 1, time);
         }
     },
     {
-        pin: BTN1,
+        pin: C0,
         callback: function(time){
-            console.log("Button:", time);
+            console.log("Pin C0:", time);
+            digitalPulse(C1, 1, time);
         }
     },
     ]);
